@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200">
+  <div class="bg-white/90 p-10 rounded-3xl shadow-2xl w-full max-w-md border-2 border-purple-300">
+    <div class="flex flex-col items-center mb-6">
+      <img src="{{ url_for('static', filename='assets/logo.png') }}" class="w-16 h-16 mb-2" alt="Logo">
+      <h2 class="text-3xl font-extrabold text-purple-800 mb-1 tracking-tight" style="font-family: 'Bungee Shade', cursive;">Login</h2>
+      <p class="text-sm text-gray-600 font-semibold">Welcome back! Let's discover more about you.</p>
+    </div>
+    <form method="POST" action="/login" class="space-y-5">
+      <div>
+        <label class="block text-purple-900 font-semibold mb-1" for="username">Username</label>
+        <input class="w-full px-4 py-2 border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50" type="text" id="username" name="username" required>
+      </div>
+      <div>
+        <label class="block text-purple-900 font-semibold mb-1" for="password">Password</label>
+        <input class="w-full px-4 py-2 border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50" type="password" id="password" name="password" required>
+      </div>
+      <button class="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 rounded-lg font-bold text-lg shadow-md hover:from-purple-600 hover:to-blue-600 transition-all duration-300" type="submit">Login</button>
+    </form>
+    <p class="mt-6 text-center text-purple-700 font-semibold">Don't have an account? <a href="/signup" class="underline hover:text-blue-700">Sign Up</a></p>
+  </div>
+</div>
+{% endblock %}

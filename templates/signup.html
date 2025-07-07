@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
+  <div class="bg-white/90 p-10 rounded-3xl shadow-2xl w-full max-w-md border-2 border-blue-300">
+    <div class="flex flex-col items-center mb-6">
+      <img src="{{ url_for('static', filename='assets/logo.png') }}" class="w-16 h-16 mb-2" alt="Logo">
+      <h2 class="text-3xl font-extrabold text-blue-800 mb-1 tracking-tight" style="font-family: 'Bungee Shade', cursive;">Sign Up</h2>
+      <p class="text-sm text-gray-600 font-semibold">Discover your personality!</p>
+    </div>
+    <form method="POST" action="/signup" class="space-y-5">
+      <div>
+        <label class="block text-blue-900 font-semibold mb-1" for="username">Username</label>
+        <input class="w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50" type="text" id="username" name="username" required>
+      </div>
+      <div>
+        <label class="block text-blue-900 font-semibold mb-1" for="email">Email</label>
+        <input class="w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50" type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label class="block text-blue-900 font-semibold mb-1" for="password">Password</label>
+        <input class="w-full px-4 py-2 border-2 border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50" type="password" id="password" name="password" required>
+      </div>
+      <button class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg font-bold text-lg shadow-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300" type="submit">Sign Up</button>
+    </form>
+    <p class="mt-6 text-center text-blue-700 font-semibold">Already have an account? <a href="/login" class="underline hover:text-purple-700">Login</a></p>
+  </div>
+</div>
+{% endblock %}
