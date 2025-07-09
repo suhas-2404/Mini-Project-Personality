@@ -28,7 +28,7 @@
             association.
         </p>
 
-        <form class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-2xl mt-10" action="/" method="post">
+        <form class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-2xl mt-10" action="/" method="post" onsubmit="return validateRatings();">
   <h2 class="text-2xl font-extrabold text-center text-gray-800 mb-6">Tell Us About Yourself</h2>
 
   <!-- Name Section -->
@@ -68,27 +68,27 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">Trying new things</label>
-      <input type="number" name="openness" min="1" max="8" placeholder="1-8" required
+      <input type="number" name="openness" id="openness" min="1" max="8" placeholder="1-8" required
         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">Vulnerable to stress</label>
-      <input type="number" name="neuroticism" min="1" max="8" placeholder="1-8" required
+      <input type="number" name="neuroticism" id="neuroticism" min="1" max="8" placeholder="1-8" required
         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">Self-disciplined</label>
-      <input type="number" name="conscientiousness" min="1" max="8" placeholder="1-8" required
+      <input type="number" name="conscientiousness" id="conscientiousness" min="1" max="8" placeholder="1-8" required
         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">Caring about others</label>
-      <input type="number" name="agreeableness" min="1" max="8" placeholder="1-8" required
+      <input type="number" name="agreeableness" id="agreeableness" min="1" max="8" placeholder="1-8" required
         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
     </div>
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">Making new friends</label>
-      <input type="number" name="extraversion" min="1" max="8" placeholder="1-8" required
+      <input type="number" name="extraversion" id="extraversion" min="1" max="8" placeholder="1-8" required
         class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"/>
     </div>
     <div>
@@ -107,6 +107,20 @@
     </button>
   </div>
 </form>
+<script>
+function validateRatings() {
+  const fields = ["openness", "neuroticism", "conscientiousness", "agreeableness", "extraversion"];
+  for (let field of fields) {
+    const val = parseInt(document.getElementById(field).value, 10);
+    if (isNaN(val) || val < 1 || val > 8) {
+      alert("Please enter a value between 1 and 8 for all personality ratings.");
+      document.getElementById(field).focus();
+      return false;
+    }
+  }
+  return true;
+}
+</script>
 
     </div>
 
